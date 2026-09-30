@@ -765,6 +765,7 @@ dependencies = [
     { name = "faker" },
     { name = "marimo", extra = ["recommended"] },
     { name = "pandas" },
+    { name = "requests" },
 ]
 
 [package.metadata]
@@ -772,6 +773,7 @@ requires-dist = [
     { name = "faker", specifier = ">=40.39.0" },
     { name = "marimo", extras = ["recommended"], specifier = ">=0.24.2" },
     { name = "pandas", specifier = ">=3.0.6" },
+    { name = "requests", specifier = ">=2.34.2" },
 ]
 
 [[package]]
