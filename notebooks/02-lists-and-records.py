@@ -249,7 +249,7 @@ def _(mo):
     return
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _():
     return
 
@@ -338,6 +338,33 @@ def _(mo):
 def _():
     statuses = ["shipped", "pending", "shipped", "cancelled", "shipped"]
     statuses
+    return (statuses,)
+
+
+@app.cell
+def _(statuses):
+    shipped_count = 0
+    for status in statuses:
+        if status == "shipped":
+            shipped_count = shipped_count + 1
+    shipped_count
+    return (shipped_count,)
+
+
+@app.cell
+def _(statuses):
+    not_shipped_count = 0
+    for status_1 in statuses:
+        if status_1 != "shipped":
+            not_shipped_count = not_shipped_count + 1
+    print(f'Not shipped count is {not_shipped_count}.')
+    return
+
+
+@app.cell
+def _(shipped_count, statuses):
+    percent_shipped = shipped_count / len(statuses) * 100
+    print(f"{percent_shipped}% of orders shipped.")
     return
 
 
@@ -365,8 +392,22 @@ def _(mo):
 @app.cell
 def _():
     order_lines = ["notebook", "pen"]
-    order_lines.append(["stapler", "tape"])
+    order_lines.extend(["stapler", "tape"])
     len(order_lines)
+    return (order_lines,)
+
+
+@app.cell
+def _(order_lines):
+    print(order_lines[2])
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(r"""
+    `append` always adds exactly one item, whatever you hand it, even if that one item is itself a list.
+    """)
     return
 
 
@@ -397,6 +438,20 @@ def _():
     print(sorted(tickers))
     print(tickers.sort())
     tickers
+    return (tickers,)
+
+
+@app.cell
+def _(mo):
+    mo.md(r"""
+    `tickers.sort()` printed `None` because `.sort()` sorts the list in place and returns nothing, while `sorted(tickers)` leaves `tickers` alone and returns a new, sorted list that `print` can show.
+    """)
+    return
+
+
+@app.cell
+def _(tickers):
+    print(f"Largest first is {sorted(tickers, reverse=True)}")
     return
 
 
@@ -430,9 +485,33 @@ def _(mo):
 @app.cell
 def _():
     prices = [12.50, 8.00, 19.99]
-    sale_prices = prices
+    sale_prices = prices[:]
     sale_prices.append(4.99)
     prices
+    return prices, sale_prices
+
+
+@app.cell
+def _(prices, sale_prices):
+    print(prices is sale_prices)
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(r"""
+    You would want two names to refer to the same list on purpose when you want a change made through one name to be visible everywhere else that list is used, such as sharing one running total or one shopping cart across different parts of a program.
+    """)
+    return
+
+
+@app.cell
+def _(prices, sale_prices):
+    discounted_sale_prices = []
+    for sale_price in sale_prices:
+        discounted_sale_prices.append(sale_price * 0.9)
+    print(discounted_sale_prices)
+    print(prices)
     return
 
 
