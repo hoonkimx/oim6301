@@ -191,16 +191,23 @@
     },
     {
       "id": "Hstk",
-      "code_hash": "115cdc766461e63d887742e99ed47a5d",
+      "code_hash": "c22a7eeaad9f5f3af58d4ddf9aaa7184",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/plain": ""
+            "text/html": "<pre class='text-xs'>3</pre>"
           }
         }
       ],
-      "console": []
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "apple\nbanana\ncherry\nadult\nMy age is 25.\n",
+          "mimetype": "text/plain"
+        }
+      ]
     },
     {
       "id": "nWHF",
@@ -256,12 +263,12 @@
     },
     {
       "id": "qnkX",
-      "code_hash": null,
+      "code_hash": "4c6876d31fdde652a1a18f3b4713edde",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/plain": ""
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Test Cell: Using just to write some words</span></span>"
           }
         }
       ],
@@ -295,7 +302,7 @@
     },
     {
       "id": "DnEU",
-      "code_hash": "ad7c04559c9daeaa653ed81aeecdc9e9",
+      "code_hash": "c581a7088785eb24cac7938d309f95f0",
       "outputs": [
         {
           "type": "data",
@@ -308,19 +315,19 @@
         {
           "type": "stream",
           "name": "stdout",
-          "text": "Pass\n",
+          "text": "A\n",
           "mimetype": "text/plain"
         }
       ]
     },
     {
       "id": "ulZA",
-      "code_hash": null,
+      "code_hash": "295d215dce79a28e39c5d14f103d047a",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/plain": ""
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">When a score satisfies two tests at once, the first condition that evaluates to True decides what gets printed.</span></span>"
           }
         }
       ],
@@ -432,7 +439,7 @@
       "console": []
     },
     {
-      "id": "ZIbo",
+      "id": "pHFh",
       "code_hash": "df5105d40840dd62c65e0c02d1e9abd9",
       "outputs": [
         {
@@ -452,7 +459,7 @@
       ]
     },
     {
-      "id": "CixL",
+      "id": "NCOB",
       "code_hash": "c2cce6d49df3d77252dff8816e894608",
       "outputs": [
         {
@@ -465,7 +472,7 @@
       "console": []
     },
     {
-      "id": "pHFh",
+      "id": "aqbW",
       "code_hash": "6935532a36f420a3c62570d37b41c982",
       "outputs": [
         {
@@ -478,7 +485,7 @@
       "console": []
     },
     {
-      "id": "NCOB",
+      "id": "TRpd",
       "code_hash": "01a8d5269858a498482cb962fade9d87",
       "outputs": [
         {
@@ -498,20 +505,20 @@
       ]
     },
     {
-      "id": "ZjaB",
-      "code_hash": "7d0678dceca5eda1c44da54ce38896b0",
+      "id": "TXez",
+      "code_hash": "6eec06eeef02093fe8c83f2016e1d7bf",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><code>tickers.sort()</code> printed <code>None</code> because <code>.sort()</code> sorts the list in place and returns nothing, while <code>sorted(tickers)</code> leaves <code>tickers</code> alone and returns a new, sorted list that <code>print</code> can show.</span></span>"
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">tickers.sort() printed None because .sort() sorts the list in place and returns nothing, while <code>sorted(tickers)</code> leaves <code>tickers</code> alone and returns a new, sorted list that <code>print</code> can show.</span></span>"
           }
         }
       ],
       "console": []
     },
     {
-      "id": "ifqt",
+      "id": "dNNg",
       "code_hash": "4ba5356dc0404dff056c9422ead6ee0e",
       "outputs": [
         {
@@ -531,7 +538,7 @@
       ]
     },
     {
-      "id": "aqbW",
+      "id": "yCnT",
       "code_hash": "f405b348260f91aaa0a73e40c618af25",
       "outputs": [
         {
@@ -544,7 +551,7 @@
       "console": []
     },
     {
-      "id": "TRpd",
+      "id": "wlCL",
       "code_hash": "fef8050147ab6b97e03e371500ce2207",
       "outputs": [
         {
@@ -557,7 +564,7 @@
       "console": []
     },
     {
-      "id": "YKuX",
+      "id": "kqZH",
       "code_hash": "c8ba5cd81bfd4f76e9001b7d29de9ada",
       "outputs": [
         {
@@ -577,7 +584,7 @@
       ]
     },
     {
-      "id": "AcGO",
+      "id": "wAgl",
       "code_hash": "012faea915a9a29aa3a5968df0875e81",
       "outputs": [
         {
@@ -590,7 +597,7 @@
       "console": []
     },
     {
-      "id": "PaIs",
+      "id": "rEll",
       "code_hash": "a7596c3842a8f04311a228ca01b24226",
       "outputs": [
         {
@@ -610,7 +617,7 @@
       ]
     },
     {
-      "id": "TXez",
+      "id": "dGlV",
       "code_hash": "8e5e2a59e9f4c3607fa0b5cb1f86f715",
       "outputs": [
         {
@@ -623,7 +630,7 @@
       "console": []
     },
     {
-      "id": "dNNg",
+      "id": "SdmI",
       "code_hash": "e22c9fe5df8633ecd9c695b5510cb87f",
       "outputs": [
         {
@@ -643,7 +650,60 @@
       ]
     },
     {
-      "id": "yCnT",
+      "id": "lgWD",
+      "code_hash": "702d1dca0354b4d7d7baa0ccd947b9d9",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><code>\"100\" + \"50\"</code> concatenated the two strings end to end and gave <code>\"10050\"</code>, which is reasonable for text because <code>+</code> on strings means \"join them,\" not \"add them as numbers.\"</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "yOPj",
+      "code_hash": "ca9b34ba04cb0c82764164612079017e",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "150\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "fwwy",
+      "code_hash": "1fdfa67a96ba8c0ae21590f1e9b3d47f",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "100.5\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "LJZf",
       "code_hash": "1d4cd33d87f69cef37de87f6bdd519ca",
       "outputs": [
         {
@@ -656,7 +716,133 @@
       "console": []
     },
     {
-      "id": "wlCL",
+      "id": "urSm",
+      "code_hash": "c33d04356fed101f03103b3a587b36ee",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "list index out of range",
+          "traceback": null
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stderr",
+          "text": "<span class=\"codehilite\"><div class=\"highlight\"><pre><span></span><span class=\"gt\">Traceback (most recent call last):</span>\n  File <span class=\"nb\">\"/var/folders/vh/rjtl1ljj4b3dlr48tlmdyt5w0000gn/T/marimo_33916/__marimo__cell_Lnve_.py\"</span>, line <span class=\"m\">1</span>, in <span class=\"n\">&lt;module&gt;</span>\n<span class=\"w\">    </span><span class=\"n\">charges</span><span class=\"p\">[</span><span class=\"mi\">5</span><span class=\"p\">]</span>\n<span class=\"w\">    </span><span class=\"pm\">~~~~~~~^^^</span>\n<span class=\"gr\">IndexError</span>: <span class=\"n\">list index out of range</span>\n</pre></div>\n</span>",
+          "mimetype": "application/vnd.marimo+traceback"
+        }
+      ]
+    },
+    {
+      "id": "jxvo",
+      "code_hash": "3e2b963b67cc721cbbd6a00420d8e543",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">There is no item 5 because <code>charges</code> holds five items, indexed 0 through 4 \u2014 Python counts positions starting at zero, so the fifth and last item is <code>charges[4]</code>, and asking for <code>charges[5]</code> asks for a position that is one past the end.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "mWxS",
+      "code_hash": "c29b27f37294d95e3e0dcc9180ad2c93",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "36.25\n36.25\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "CcZR",
+      "code_hash": "53ae0f9a499fc8cdd75fdec1d1d87e1a",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "list index out of range",
+          "traceback": null
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stderr",
+          "text": "<span class=\"codehilite\"><div class=\"highlight\"><pre><span></span><span class=\"gt\">Traceback (most recent call last):</span>\n  File <span class=\"nb\">\"/var/folders/vh/rjtl1ljj4b3dlr48tlmdyt5w0000gn/T/marimo_33916/__marimo__cell_RFZz_.py\"</span>, line <span class=\"m\">1</span>, in <span class=\"n\">&lt;module&gt;</span>\n<span class=\"w\">    </span><span class=\"n\">charges</span><span class=\"p\">[</span><span class=\"o\">-</span><span class=\"mi\">6</span><span class=\"p\">]</span>\n<span class=\"w\">    </span><span class=\"pm\">~~~~~~~^^^^</span>\n<span class=\"gr\">IndexError</span>: <span class=\"n\">list index out of range</span>\n</pre></div>\n</span>",
+          "mimetype": "application/vnd.marimo+traceback"
+        }
+      ]
+    },
+    {
+      "id": "YWSi",
+      "code_hash": "2f6e5ea87e5608a445ba370ace0e9986",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><code>charges[-6]</code> also raises an <code>IndexError</code>. Negative indexes count backward from the end, so <code>-1</code> is the last item and <code>-5</code> is the first; going one further to <code>-6</code> runs off the front of the list the same way <code>charges[5]</code> ran off the end.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "zlud",
+      "code_hash": "26d60b98e76a979eeea63511f69172c2",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "3 of 5 orders shipped\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "tZnO",
+      "code_hash": "99fe0ecac831e9d6f6adf54f5fa485f2",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "3 of 5 orders shipped (60%)\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "xvXZ",
       "code_hash": "b9a8a3f558e3abd939892755cdb675a5",
       "outputs": [
         {
@@ -669,7 +855,7 @@
       "console": []
     },
     {
-      "id": "kqZH",
+      "id": "CLip",
       "code_hash": "53f7fdf6f5abd48e8964538bd017999e",
       "outputs": [
         {
@@ -682,7 +868,7 @@
       "console": []
     },
     {
-      "id": "wAgl",
+      "id": "YECM",
       "code_hash": "692b58e986493ab11653c79bccc2af34",
       "outputs": [
         {
@@ -695,7 +881,7 @@
       "console": []
     },
     {
-      "id": "rEll",
+      "id": "cEAS",
       "code_hash": "332446c7b3958fd46ca5386ebac32217",
       "outputs": [
         {
@@ -708,7 +894,7 @@
       "console": []
     },
     {
-      "id": "dGlV",
+      "id": "iXej",
       "code_hash": "b4c4fb6a4f42fd5d98b6b18739a03241",
       "outputs": [
         {
@@ -721,7 +907,27 @@
       "console": []
     },
     {
-      "id": "SdmI",
+      "id": "EJmg",
+      "code_hash": "84f5347b08b14d57dda9aa24d995d231",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "'freight'",
+          "traceback": null
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stderr",
+          "text": "<span class=\"codehilite\"><div class=\"highlight\"><pre><span></span><span class=\"gt\">Traceback (most recent call last):</span>\n  File <span class=\"nb\">\"/var/folders/vh/rjtl1ljj4b3dlr48tlmdyt5w0000gn/T/marimo_33916/__marimo__cell_VUgy_.py\"</span>, line <span class=\"m\">1</span>, in <span class=\"n\">&lt;module&gt;</span>\n<span class=\"w\">    </span><span class=\"n\">first_order</span><span class=\"p\">[</span><span class=\"s2\">\"freight\"</span><span class=\"p\">]</span>\n<span class=\"w\">    </span><span class=\"pm\">~~~~~~~~~~~^^^^^^^^^^^</span>\n<span class=\"gr\">KeyError</span>: <span class=\"n\">'freight'</span>\n</pre></div>\n</span>",
+          "mimetype": "application/vnd.marimo+traceback"
+        }
+      ]
+    },
+    {
+      "id": "UmEG",
       "code_hash": "0ed1e9cc210d89a44e791cc8866fac27",
       "outputs": [
         {
@@ -734,7 +940,7 @@
       "console": []
     },
     {
-      "id": "lgWD",
+      "id": "vEBW",
       "code_hash": "2e78ba09148c2840a0ce57701f538f5b",
       "outputs": [
         {
@@ -747,7 +953,7 @@
       "console": []
     },
     {
-      "id": "yOPj",
+      "id": "kLmu",
       "code_hash": "215e85cc1d798eb376e760e2e6876215",
       "outputs": [
         {
@@ -760,7 +966,7 @@
       "console": []
     },
     {
-      "id": "fwwy",
+      "id": "IpqN",
       "code_hash": "56ae7cf264083e0936598623c21b783a",
       "outputs": [
         {
@@ -773,7 +979,7 @@
       "console": []
     },
     {
-      "id": "LJZf",
+      "id": "dxZZ",
       "code_hash": "362a604c80a321d2e4d5c0c5e80b4671",
       "outputs": [
         {
@@ -786,33 +992,53 @@
       "console": []
     },
     {
-      "id": "urSm",
-      "code_hash": "276567fb8e96c73de1480e5e345ad8c1",
+      "id": "dlnW",
+      "code_hash": "122028bef129f261c4091a3c2d19ec1f",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"what-one-row-means\">\u270f\ufe0f What One Row Means</h2>\n<span class=\"paragraph\"><strong>In the markdown cell below</strong>, replace the placeholder line with your own sentence,\nin words somebody outside this course would understand. Name what a row <em>is</em>. Listing\nthe columns is not an answer.</span>\n<span class=\"paragraph\">Start it with <em>One row is...</em></span>\n<span class=\"paragraph\">Then check it: if a row were what you just wrote, <strong>how many rows would this table\nhave?</strong> Does that match 30?</span></span>"
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Total freight: 827.00\nOrders with no ShippedDate: 3\nLargest freight: order 10263 at 56.00\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "TTti",
+      "code_hash": "e4b0d9e7dc06d43fb16a47b53616b507",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"what-one-row-means\">\u270f\ufe0f What One Row Means</h2>\n<span class=\"paragraph\"><strong>In the markdown cell below</strong>, replace the placeholder line with your own sentence,\nin words somebody outside this course would understand. Name what a row <em>is</em>. Listing\nthe columns is not an answer.</span>\n<span class=\"paragraph\">Then check it: if a row were what you just wrote, <strong>how many rows would this table\nhave?</strong> Does that match 30?</span></span>"
           }
         }
       ],
       "console": []
     },
     {
-      "id": "jxvo",
-      "code_hash": "1a951e63750454427afca99d94d5c044",
+      "id": "RKFZ",
+      "code_hash": "9358a71d13eb9c10a69d73e2c299aa13",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><em>One row is ...</em></span>\n<span class=\"paragraph\"><em>(Replace this line with your own sentence. If this cell shows you code instead of\ntext, use the cell menu to turn it into a markdown cell.)</em></span></span>"
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><em>One row is one customer's order \u2014 everything that happened from the moment they placed it to the moment (if any) it shipped.</em></span>\n<span class=\"paragraph\"><strong>Check:</strong> if a row is one order, the table should have one row per order. There are 30 orders listed, and <code>len(orders)</code> gives 30, so yes, it matches.</span></span>"
           }
         }
       ],
       "console": []
     },
     {
-      "id": "mWxS",
+      "id": "IaQp",
       "code_hash": "33f3e6ba51f144e4af890984773e0cfc",
       "outputs": [
         {
@@ -825,7 +1051,7 @@
       "console": []
     },
     {
-      "id": "CcZR",
+      "id": "IWgg",
       "code_hash": "ee04f5dc9b3e474ede5f3f883c3aa33e",
       "outputs": [
         {
@@ -838,7 +1064,86 @@
       "console": []
     },
     {
-      "id": "YWSi",
+      "id": "fCoF",
+      "code_hash": "5b531fc91ceaf3f99f722cfce28d7ee6",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">For each holding, multiply its number of shares by its price per share to get what that holding costs. Do that for all six holdings. Then add up the six holding costs to get the total cost of the whole portfolio.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "LkGn",
+      "code_hash": "61fd2ae172a6b03a7edb0baec60c23af",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Portfolio cost: $116302.70\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "zVRe",
+      "code_hash": "11d2871a09b170566093167f36c1cc80",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">I would pick portforlio_cost = 0</span>\n<span class=\"paragraph\">This is a running total that starts before the loop even begins. Python can't add to a name that doesn't exist so portfolio_cost has to set to something first. It starts at 0 so it doesnt do anything to the first value added. For example, <code>portfolio_cost = portfolio_cost + holding_cost</code> only works correctly on the first pass if <code>portfolio_cost</code> already equals <code>0</code>, otherwise the first holding's cost would be added to whatever leftover value was sitting there. This same concept was applied at the start of the notebook.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "woaO",
+      "code_hash": "8d2a97738bd58036d9a249bf8c661b03",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><strong>A similar problem:</strong> What is the total cost of just the holdings where you hold <strong>more than 50 shares</strong>?</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "HnMC",
+      "code_hash": "55da5f021c0c820ebe448b80336a9870",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Cost of holdings over 50 shares: $92122.80\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "wadT",
       "code_hash": "d7c2e174de0e810f192e0ebcd5f38e05",
       "outputs": [
         {
@@ -851,7 +1156,7 @@
       "console": []
     },
     {
-      "id": "zlud",
+      "id": "VCRE",
       "code_hash": "75416f5df6cb12c24498123c5e0d1d9a",
       "outputs": [
         {
@@ -864,7 +1169,7 @@
       "console": []
     },
     {
-      "id": "tZnO",
+      "id": "hgqU",
       "code_hash": "d8cb88a4a782aa1a3abecba9ae2a81aa",
       "outputs": [
         {

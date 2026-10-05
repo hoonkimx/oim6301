@@ -150,16 +150,40 @@ def _():
     # Your own example of each name.
 
     # 1. value:
+    99
+
     # 2. name and assignment:
+    my_name = "Hoon"
+    my_age = 25
+
     # 3. type:
+    type(my_age)
+
     # 4. list:
+    fruits = ["apple", "banana", "cherry"]
+
     # 5. index:
+    fruits[0]
+
     # 6. loop:
+    for fruit in fruits:
+        print(fruit)
+
     # 7. condition:
+    if my_age > 18:
+        print("adult")
+
     # 8. f-string:
+    print(f"My age is {my_age}.")
+
     # 9. many into one number:
+    sum([1, 2, 3])
+
     # 10. function and argument:
+    len(fruits)
+
     # 11. error:
+    # fruits[10] would produce IndexError
     return
 
 
@@ -215,7 +239,7 @@ def _(mo):
 def _():
     charges = [16.75, 22.25, 25.00, 20.25, 36.25]
     charges
-    return
+    return (charges,)
 
 
 @app.cell(hide_code=True)
@@ -250,7 +274,10 @@ def _(mo):
 
 
 @app.cell(hide_code=True)
-def _():
+def _(mo):
+    mo.md(r"""
+    Test Cell: Using just to write some words
+    """)
     return
 
 
@@ -298,7 +325,7 @@ def _(mo):
 
 @app.cell
 def _():
-    score = 81
+    score = 90
 
     if score >= 90:
         print('A')
@@ -309,8 +336,11 @@ def _():
     return
 
 
-@app.cell
-def _():
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    When a score satisfies two tests at once, the first condition that evaluates to True decides what gets printed.
+    """)
     return
 
 
@@ -444,7 +474,7 @@ def _():
 @app.cell
 def _(mo):
     mo.md(r"""
-    `tickers.sort()` printed `None` because `.sort()` sorts the list in place and returns nothing, while `sorted(tickers)` leaves `tickers` alone and returns a new, sorted list that `print` can show.
+    tickers.sort() printed None because .sort() sorts the list in place and returns nothing, while `sorted(tickers)` leaves `tickers` alone and returns a new, sorted list that `print` can show.
     """)
     return
 
@@ -543,6 +573,28 @@ def _():
     return
 
 
+@app.cell
+def _(mo):
+    mo.md(r"""
+    `"100" + "50"` concatenated the two strings end to end and gave `"10050"`, which is reasonable for text because `+` on strings means "join them," not "add them as numbers."
+    """)
+    return
+
+
+@app.cell
+def _():
+    print(int("100") + int("50"))
+    return
+
+
+@app.cell
+def _():
+    # int("100.5") raises ValueError: invalid literal for int() with base 10: '100.5'
+    # int() only parses whole-number text, so a decimal point breaks it.
+    print(float("100.5"))
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
@@ -562,6 +614,53 @@ def _(mo):
     > `3 of 5 orders shipped (60%)`. An f-string is the short way to build a sentence out of
     > values, and it was section 5 of last week's notebook.
     """)
+    return
+
+
+@app.cell
+def _(charges):
+    charges[5]
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(r"""
+    There is no item 5 because `charges` holds five items, indexed 0 through 4 — Python counts positions starting at zero, so the fifth and last item is `charges[4]`, and asking for `charges[5]` asks for a position that is one past the end.
+    """)
+    return
+
+
+@app.cell
+def _(charges):
+    print(charges[-1])
+    print(charges[len(charges) - 1])
+    return
+
+
+@app.cell
+def _(charges):
+    charges[-6]
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(r"""
+    `charges[-6]` also raises an `IndexError`. Negative indexes count backward from the end, so `-1` is the last item and `-5` is the first; going one further to `-6` runs off the front of the list the same way `charges[5]` ran off the end.
+    """)
+    return
+
+
+@app.cell
+def _(shipped_count, statuses):
+    print(f"{shipped_count} of {len(statuses)} orders shipped")
+    return
+
+
+@app.cell
+def _(shipped_count, statuses):
+    print(f"{shipped_count} of {len(statuses)} orders shipped ({shipped_count / len(statuses) * 100:.0f}%)")
     return
 
 
@@ -621,6 +720,15 @@ def _(mo):
     Two of them fail, and both give the same kind of error. Add a cell and find out
     which, and what the message says. A `KeyError` names the key it could not find.
     """)
+    return
+
+
+@app.cell
+def _(first_order):
+    first_order["freight"]
+    first_order[0]
+
+    # these are the two that fail
     return
 
 
@@ -713,6 +821,30 @@ def _(mo):
     return
 
 
+@app.cell
+def _(orders):
+    # 1. Total freight across all 30 orders
+    total_freight = 0
+    for order in orders:
+        total_freight = total_freight + order["Freight"]
+    print(f"Total freight: {total_freight:.2f}")
+
+    # 2. How many orders have no ShippedDate?
+    orders_not_shipped_count = 0
+    for order in orders:
+        if order["ShippedDate"] is None:
+            orders_not_shipped_count = orders_not_shipped_count + 1
+    print(f"Orders with no ShippedDate: {orders_not_shipped_count}")
+
+    # 3. Which order has the largest freight, and what is it?
+    largest_order = orders[0]
+    for order in orders:
+        if order["Freight"] > largest_order["Freight"]:
+            largest_order = order
+    print(f"Largest freight: order {largest_order['OrderID']} at {largest_order['Freight']:.2f}")
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
@@ -721,8 +853,6 @@ def _(mo):
     **In the markdown cell below**, replace the placeholder line with your own sentence,
     in words somebody outside this course would understand. Name what a row *is*. Listing
     the columns is not an answer.
-
-    Start it with *One row is...*
 
     Then check it: if a row were what you just wrote, **how many rows would this table
     have?** Does that match 30?
@@ -733,10 +863,9 @@ def _(mo):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    *One row is ...*
+    *One row is one customer's order — everything that happened from the moment they placed it to the moment (if any) it shipped.*
 
-    *(Replace this line with your own sentence. If this cell shows you code instead of
-    text, use the cell menu to turn it into a markdown cell.)*
+    **Check:** if a row is one order, the table should have one row per order. There are 30 orders listed, and `len(orders)` gives 30, so yes, it matches.
     """)
     return
 
@@ -774,6 +903,52 @@ def _():
         {"Symbol": "TSLA", "Shares": 150, "Price": 255.70},
     ]
     portfolio
+    return (portfolio,)
+
+
+@app.cell
+def _(mo):
+    mo.md(r"""
+    For each holding, multiply its number of shares by its price per share to get what that holding costs. Do that for all six holdings. Then add up the six holding costs to get the total cost of the whole portfolio.
+    """)
+    return
+
+
+@app.cell
+def _(portfolio):
+    portfolio_cost = 0
+    for holding in portfolio:
+        holding_cost = holding["Shares"] * holding["Price"]
+        portfolio_cost = portfolio_cost + holding_cost
+    print(f"Portfolio cost: ${portfolio_cost:.2f}")
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(r"""
+    I would pick portforlio_cost = 0
+
+    This is a running total that starts before the loop even begins. Python can't add to a name that doesn't exist so portfolio_cost has to set to something first. It starts at 0 so it doesnt do anything to the first value added. For example, `portfolio_cost = portfolio_cost + holding_cost` only works correctly on the first pass if `portfolio_cost` already equals `0`, otherwise the first holding's cost would be added to whatever leftover value was sitting there. This same concept was applied at the start of the notebook.
+    """)
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(r"""
+    **A similar problem:** What is the total cost of just the holdings where you hold **more than 50 shares**?
+    """)
+    return
+
+
+@app.cell
+def _(portfolio):
+    large_holdings_cost = 0
+    for large_holding in portfolio:
+        if large_holding["Shares"] > 50:
+            large_holdings_cost = large_holdings_cost + large_holding["Shares"] * large_holding["Price"]
+    print(f"Cost of holdings over 50 shares: ${large_holdings_cost:.2f}")
     return
 
 
