@@ -68,9 +68,9 @@ def _(mo):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    My plan is to start with the 60 cartons of oat milk and the provided daily demand data. Then simulate each day, checking whether any previously ordered cartons arrive. Subract the number of cartons sold from the available inventory and record any lost sales. Check whether the remaining inventory plus pending orders at or below the reorder point. If so, place an order for 100 cartons to arrive three days later. THen repeat the process for all 40 days, carrying the remaining inventory and outstanding orders forward.
+    My plan is to start with the 60 cartons of oat milk and the provided daily demand data. Then simulate each day, checking whether any previously ordered cartons arrive. Subract the number of cartons sold from the available inventory and record any lost sales. Check whether the remaining inventory plus pending orders at or below the reorder point. If so, place an order for 100 cartons to arrive three days later. THen repeat the process for all 30 days, carrying the remaining inventory and outstanding orders forward.
 
-    I will then run the simulation separately for reorder points of 20, 30, 40, and 50. Then compare those results and see which reorder point provides the best balance between lost sales and inventory levels.
+    I will then run the simulation separately for reorder points of 20, 30, 40, and 50. Then compare those results and see which reorder point provides the best balance between lost sales and inventory levels. The loop carries forward the remaining inventory and any pending orders from one day to the next. This allows the simulation to track how much stock is available and when new deliveries will arrive. I will check that the starting inventory pluys any deliveries, minus the cartons sold, equals the ending inventory. I will compare this independently calculated number with the ending inventory produced by the sim.
     """)
     return
 
