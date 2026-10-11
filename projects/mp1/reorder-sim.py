@@ -45,6 +45,14 @@ def _(mo):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
+    Someone who could potentially use this, is a coffee shop owner to help determine when to reorder milk. By simulating daily deman and inventory levels, the tool compares different reorder points to identify which option best balances lost sales and excess inventory.
+    """)
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
     ## 2. My Plan Before AI
 
     *Before you ask your agent anything, write how you would solve it: the steps, in order, in plain words, in five lines or more. Then answer these two questions:*
@@ -53,6 +61,16 @@ def _(mo):
     - *Which check will you use in section 6, and which two numbers should agree?*
 
     *Commit this notebook with the message `mp1: plan before AI`.*
+    """)
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    My plan is to start with the 60 cartons of oat milk and the provided daily demand data. Then simulate each day, checking whether any previously ordered cartons arrive. Subract the number of cartons sold from the available inventory and record any lost sales. Check whether the remaining inventory plus pending orders at or below the reorder point. If so, place an order for 100 cartons to arrive three days later. THen repeat the process for all 40 days, carrying the remaining inventory and outstanding orders forward.
+
+    I will then run the simulation separately for reorder points of 20, 30, 40, and 50. Then compare those results and see which reorder point provides the best balance between lost sales and inventory levels.
     """)
     return
 
