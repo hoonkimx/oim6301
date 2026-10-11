@@ -96,7 +96,7 @@ def _():
     reorder_points = [20, 30, 40, 50]
     daily_demand = [12, 15, 9, 14, 18, 11, 10, 16, 13, 17, 8, 12, 20, 14, 11,
                     9, 15, 13, 16, 12, 10, 14, 19, 11, 13, 15, 9, 12, 17, 14]
-    return daily_demand, starting_stock
+    return daily_demand, lead_time_days, order_quantity, starting_stock
 
 
 @app.cell(hide_code=True)
@@ -121,16 +121,30 @@ def _():
 
 
 @app.cell
-def _(daily_demand, starting_stock):
+def _(daily_demand, lead_time_days, order_quantity, starting_stock):
     reorder_point = 40
     deliveries = {}
 
     stock = starting_stock
 
     for day in range(1, len(daily_demand) + 1):
+    
+        if day in deliveries:
+            stock = stock + deliveries[day]
+    
         demand = daily_demand[day - 1]
         sold = min(stock, demand)
         stock = stock - sold
+
+        pending_stock = 0
+
+        for delivery_day in deliveries:
+            if delivery_day > day:
+                pending_stock = pending_stock + deliveries[delivery_day]
+
+        if stock + pending_stock <= reorder_point:
+            deliveries[day + lead_time_days] = order_quantity
+    
         print(day, stock)
     return
 
