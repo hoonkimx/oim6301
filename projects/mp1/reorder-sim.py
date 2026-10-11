@@ -122,12 +122,16 @@ def _():
 
 @app.cell
 def _(daily_demand, starting_stock):
+    reorder_point = 40
+    deliveries = {}
+
     stock = starting_stock
 
-    for demand in daily_demand:
+    for day in range(1, len(daily_demand) + 1):
+        demand = daily_demand[day - 1]
         sold = min(stock, demand)
         stock = stock - sold
-        print(stock)
+        print(day, stock)
     return
 
 
