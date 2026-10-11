@@ -127,25 +127,45 @@ def _(daily_demand, lead_time_days, order_quantity, starting_stock):
 
     stock = starting_stock
 
+    daily_results = []
+
     for day in range(1, len(daily_demand) + 1):
+        starting_inventory = stock
+        arrived = 0
     
         if day in deliveries:
-            stock = stock + deliveries[day]
+            arrived = deliveries[day]
+            stock = stock + arrived
     
         demand = daily_demand[day - 1]
         sold = min(stock, demand)
+        lost = demand - sold
         stock = stock - sold
 
         pending_stock = 0
 
+        units_ordered = 0
+    
         for delivery_day in deliveries:
             if delivery_day > day:
                 pending_stock = pending_stock + deliveries[delivery_day]
 
         if stock + pending_stock <= reorder_point:
             deliveries[day + lead_time_days] = order_quantity
+            units_ordered = order_quantity
     
-        print(day, stock)
+        daily_results.append({
+            "day": day,
+            "starting_stock": starting_inventory,
+            "arrived": arrived,
+            "demand": demand,
+            "sold": sold,
+            "lost": lost,
+            "ending_stock": stock,
+            "units_ordered": units_ordered
+        })
+
+        print(daily_results[0])
     return
 
 
