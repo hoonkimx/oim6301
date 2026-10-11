@@ -90,7 +90,13 @@ def _(mo):
 @app.cell
 def _():
     # Your inputs.
-    return
+    starting_stock = 60
+    order_quantity = 100
+    lead_time_days = 3
+    reorder_points = [20, 30, 40, 50]
+    daily_demand = [12, 15, 9, 14, 18, 11, 10, 16, 13, 17, 8, 12, 20, 14, 11,
+                    9, 15, 13, 16, 12, 10, 14, 19, 11, 13, 15, 9, 12, 17, 14]
+    return daily_demand, starting_stock
 
 
 @app.cell(hide_code=True)
@@ -105,6 +111,23 @@ def _(mo):
 
 @app.cell
 def _():
+    ## test cell
+    #stock = starting_stock
+    #demand = daily_demand[0]
+    #sold = min(stock, demand)
+    #stock = stock - sold
+    #print(stock)
+    return
+
+
+@app.cell
+def _(daily_demand, starting_stock):
+    stock = starting_stock
+
+    for demand in daily_demand:
+        sold = min(stock, demand)
+        stock = stock - sold
+        print(stock)
     return
 
 
