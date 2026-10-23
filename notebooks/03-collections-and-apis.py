@@ -159,11 +159,11 @@ def _(mo):
 
     **B ·** France, Germany, Brazil, and the USA tied for the most orders, each with 4.
 
-    **C ·**
+    **C ·** 1. A list, because the lines can be added, removed and reordered, and position matters. 2. A set, because you only need the distinct customers, not how many times each ordered or in what order. 3. A dictionary, because you look units up by product name, a key. 4. A tuple, because the three fields travel together and must never change once recorded.
 
-    **D ·**
+    **D ·** 1. I'd rather work with the list of dictionaries, because `holding["Shares"]` says what it means, while `holding[1]` only works if you remember the order the tuple was built in.
 
-    **G ·**
+    **G ·** The first result for "Babson Park" is in Florida, not Massachusetts. Code that always takes `[0]` would have silently used the wrong town's coordinates, with no error or warning to catch the mistake.
     """)
     return
 
@@ -503,6 +503,32 @@ def _():
         ("TSLA", 150, 255.70),
     ]
     holdings
+    return (holdings,)
+
+
+@app.cell
+def _(holdings):
+    portfolio_cost = 0
+    for _symbol, _shares, _price in holdings:
+        portfolio_cost = portfolio_cost + _shares * _price
+    portfolio_cost
+    return
+
+
+@app.cell
+def _(holdings):
+    holding_costs = {}
+    for _symbol_1, _shares_1, _price_1 in holdings:
+        holding_costs[_symbol_1] = _shares_1 * _price_1
+
+    priciest_ticker = None
+    priciest_cost = 0
+    for _ticker, _cost in holding_costs.items():
+        if _cost > priciest_cost:
+            priciest_cost = _cost
+            priciest_ticker = _ticker
+
+    priciest_ticker, priciest_cost
     return
 
 
@@ -697,6 +723,48 @@ def _(mo):
     return
 
 
+@app.cell
+def _(babson_weather):
+    wind_speed = babson_weather["current"]["wind_speed_10m"]
+    wind_unit = babson_weather["current_units"]["wind_speed_10m"]
+    print(f"The wind at Babson is {wind_speed} {wind_unit}.")
+    return
+
+
+@app.cell
+def _(requests):
+    wellesley_reply = requests.get(
+        "https://geocoding-api.open-meteo.com/v1/search?name=Wellesley&count=1",
+        timeout=10,
+    )
+    wellesley_place = wellesley_reply.json()["results"][0]
+    wellesley_place["latitude"], wellesley_place["longitude"], wellesley_place["admin1"]
+    return (wellesley_place,)
+
+
+@app.cell
+def _(requests):
+    babson_park_reply = requests.get(
+        "https://geocoding-api.open-meteo.com/v1/search?name=Babson Park&count=1",
+        timeout=10,
+    )
+    babson_park_place = babson_park_reply.json()["results"][0]
+    babson_park_place
+    return
+
+
+@app.cell
+def _(requests, wellesley_place):
+    wellesley_url = (
+        f"https://api.open-meteo.com/v1/forecast"
+        f"?latitude={wellesley_place['latitude']}&longitude={wellesley_place['longitude']}"
+        f"&current=temperature_2m&temperature_unit=fahrenheit&timezone=America/New_York"
+    )
+    wellesley_reply_weather = requests.get(wellesley_url, timeout=10)
+    wellesley_reply_weather.json()["current"]["temperature_2m"]
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
@@ -761,4 +829,3 @@ def _(mo):
 
 if __name__ == "__main__":
     app.run()
-
