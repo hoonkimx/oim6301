@@ -186,12 +186,79 @@ def _(mo):
     return
 
 
+@app.function
+def count_shares(portfolio):
+    total_shares = 0
+    for symbol, shares, price in portfolio:
+        total_shares = total_shares + shares
+    return total_shares
+
+
+@app.cell
+def _(holdings, retirement_holdings):
+    count_shares(holdings), count_shares(retirement_holdings)
+    return
+
+
+@app.function
+def find_largest(portfolio):
+    largest_symbol = None
+    largest_cost = 0
+    for symbol, shares, price in portfolio:
+        cost = shares * price
+        if cost > largest_cost:
+            largest_cost = cost
+            largest_symbol = symbol
+    return largest_symbol, round(largest_cost, 2)
+
+
+@app.cell
+def _(holdings, retirement_holdings):
+    find_largest(holdings), find_largest(retirement_holdings)
+    return
+
+
+@app.function
+def find_n_largest(portfolio, n):
+    costs = []
+    for symbol, shares, price in portfolio:
+        costs.append((symbol, round(shares * price, 2)))
+    costs.sort(key=lambda holding: holding[1], reverse=True)
+    return costs[:n]
+
+
+@app.cell
+def _(holdings):
+    find_n_largest(holdings, 3)
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
     ## ✏️ B · Without `return`
 
     Copy `count_shares` into a new cell under a new name, and put `print(...)` where the `return` was. Call it and keep the result in a name. In a markdown cell under it, answer: what does that name hold, and what could the next cell do with it?
+    """)
+    return
+
+
+@app.cell
+def _(holdings):
+    def print_shares(portfolio):
+        total_shares = 0
+        for symbol, shares, price in portfolio:
+            total_shares = total_shares + shares
+        print(total_shares)
+
+    printed_result = print_shares(holdings)
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(r"""
+    `printed_result` holds `None`, because `print_shares` never returns a value: `print(...)` only displays the total, it does not hand it back to the caller. A function with no `return` always gives back `None`, so the next cell would have nothing useful to do with `printed_result` — it would have to re-run the loop itself to get the actual number.
     """)
     return
 
@@ -331,6 +398,71 @@ def _(mo):
     return
 
 
+@app.cell
+def _(requests):
+    def get_temperature(town):
+        search_reply = requests.get(
+            "https://geocoding-api.open-meteo.com/v1/search",
+            params={"name": town, "count": 1},
+            timeout=10,
+        )
+        place = search_reply.json()["results"][0]
+        weather_reply = requests.get(
+            "https://api.open-meteo.com/v1/forecast",
+            params={
+                "latitude": place["latitude"],
+                "longitude": place["longitude"],
+                "current": "temperature_2m",
+                "temperature_unit": "fahrenheit",
+            },
+            timeout=10,
+        )
+        return weather_reply.json()["current"]["temperature_2m"]
+
+    return (get_temperature,)
+
+
+@app.cell
+def _(get_temperature):
+    get_temperature("Wellesley")
+    return
+
+
+@app.cell
+def _(requests):
+    def get_temperature_in_state(town, state):
+        search_reply = requests.get(
+            "https://geocoding-api.open-meteo.com/v1/search",
+            params={"name": town, "count": 10},
+            timeout=10,
+        )
+        places = search_reply.json()["results"]
+        matching_place = None
+        for place in places:
+            if place.get("admin1") == state:
+                matching_place = place
+                break
+        weather_reply = requests.get(
+            "https://api.open-meteo.com/v1/forecast",
+            params={
+                "latitude": matching_place["latitude"],
+                "longitude": matching_place["longitude"],
+                "current": "temperature_2m",
+                "temperature_unit": "fahrenheit",
+            },
+            timeout=10,
+        )
+        return weather_reply.json()["current"]["temperature_2m"]
+
+    return (get_temperature_in_state,)
+
+
+@app.cell
+def _(get_temperature_in_state):
+    get_temperature_in_state("Babson Park", "Massachusetts")
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
@@ -340,6 +472,73 @@ def _(mo):
 
     *Check yourself: Dover, Wellesley, Cohasset, Needham, Westwood.*
     """)
+    return
+
+
+@app.cell
+def _(requests):
+    top_income_reply = requests.get(
+        "https://oim.zhili.dev/ma/towns",
+        params={"county": "Norfolk", "sort": "income", "order": "desc", "per_page": 5},
+        timeout=10,
+    )
+    top_income_towns = [town["name"] for town in top_income_reply.json()["items"]]
+    top_income_towns
+    return
+
+
+@app.cell
+def _(requests):
+    wellesley_town_reply = requests.get(
+        "https://oim.zhili.dev/ma/towns",
+        params={"name": "Wellesley"},
+        timeout=10,
+    )
+    wellesley_dor_code = wellesley_town_reply.json()["items"][0]["dor_code"]
+    wellesley_dor_code
+    return (wellesley_dor_code,)
+
+
+@app.cell
+def _(requests, wellesley_dor_code):
+    wellesley_history_reply = requests.get(
+        f"https://oim.zhili.dev/ma/towns/{wellesley_dor_code}/history",
+        params={"from_year": 2026, "to_year": 2026},
+        timeout=10,
+    )
+    wellesley_2026 = wellesley_history_reply.json()["years"][0]
+    wellesley_2026
+    return (wellesley_2026,)
+
+
+@app.cell
+def _(wellesley_2026):
+    checked_bill = wellesley_2026["average_single_family_value_dollars"] * wellesley_2026["residential_rate_per_thousand"] / 1000
+    checked_bill, wellesley_2026["average_single_family_bill_dollars"]
+    return
+
+
+@app.cell
+def _(requests):
+    def town_history(name):
+        town_reply = requests.get(
+            "https://oim.zhili.dev/ma/towns",
+            params={"name": name},
+            timeout=10,
+        )
+        dor_code = town_reply.json()["items"][0]["dor_code"]
+        history_reply = requests.get(
+            f"https://oim.zhili.dev/ma/towns/{dor_code}/history",
+            timeout=10,
+        )
+        return history_reply.json()
+
+    return (town_history,)
+
+
+@app.cell
+def _(town_history):
+    town_history("Wellesley")["years"][-1]
     return
 
 
@@ -440,6 +639,46 @@ def _(mo):
     return
 
 
+@app.cell
+def _(get_page):
+    def get_all_towns():
+        first_page = get_page(1)
+        pages = first_page["pagination"]["pages"]
+        all_towns = first_page["items"]
+        for page_number in range(2, pages + 1):
+            all_towns = all_towns + get_page(page_number)["items"]
+        return all_towns
+
+    return (get_all_towns,)
+
+
+@app.cell
+def _(get_all_towns):
+    all_towns = get_all_towns()
+    len(all_towns), all_towns[0]["name"], all_towns[-1]["name"]
+    return (all_towns,)
+
+
+@app.cell
+def _(all_towns):
+    highest_bill_town = None
+    highest_bill = 0
+    lowest_bill_town = None
+    lowest_bill = None
+    for town in all_towns:
+        bill = town["average_single_family_bill_dollars"]
+        if bill is None:
+            continue
+        if bill > highest_bill:
+            highest_bill = bill
+            highest_bill_town = town["name"]
+        if lowest_bill is None or bill < lowest_bill:
+            lowest_bill = bill
+            lowest_bill_town = town["name"]
+    (highest_bill_town, highest_bill), (lowest_bill_town, lowest_bill)
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
@@ -486,6 +725,72 @@ def _(mo):
 
     **Going further.** Post something more useful than one town's bill: choose a question somebody would ask, answer it from live data, and post the answer, in 140 characters or fewer.
     """)
+    return
+
+
+@app.cell
+def _(requests):
+    town_lookup_reply = requests.get(
+        "https://oim.zhili.dev/ma/towns",
+        params={"name": "Wellesley"},
+        timeout=10,
+    )
+    town_record = town_lookup_reply.json()["items"][0]
+    town_name = town_record["name"]
+    town_bill = town_record["average_single_family_bill_dollars"]
+    town_name, town_bill
+    return town_bill, town_name
+
+
+@app.cell
+def _(requests, town_bill, town_name):
+    board_reply = requests.post(
+        "https://oim.zhili.dev/message",
+        headers={"x-token": "hoonkimx"},
+        json={"message": f"{town_name}: ${town_bill:,}"},
+        timeout=10,
+    )
+    board_reply.status_code, board_reply.json()
+    return
+
+
+@app.cell
+def _(requests, town_bill, town_name):
+    no_header_reply = requests.post(
+        "https://oim.zhili.dev/message",
+        json={"message": f"{town_name}: ${town_bill:,}"},
+        timeout=10,
+    )
+    no_header_reply.status_code, no_header_reply.json()
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(r"""
+    Without the `headers=` line, the server answers **401**, meaning *unauthorized*, with `{'detail': 'Missing x-token header'}`. It needs to know who sent a message because the board shows each post next to a name: without an `x-token` it has no way to attribute the message to anyone, and anyone could post as anyone else or spam the board anonymously.
+    """)
+    return
+
+
+@app.cell
+def _(all_towns, town_bill, town_name):
+    state_average_bill = sum(bill for bill in (t["average_single_family_bill_dollars"] for t in all_towns) if bill is not None) \
+        / sum(1 for t in all_towns if t["average_single_family_bill_dollars"] is not None)
+    useful_message = f"{town_name}'s ${town_bill:,} bill is {town_bill / state_average_bill:.1f}x the MA average of ${state_average_bill:,.0f}."
+    useful_message, len(useful_message)
+    return (useful_message,)
+
+
+@app.cell
+def _(requests, useful_message):
+    useful_board_reply = requests.post(
+        "https://oim.zhili.dev/message",
+        headers={"x-token": "hoonkimx"},
+        json={"message": useful_message},
+        timeout=10,
+    )
+    useful_board_reply.status_code, useful_board_reply.json()
     return
 
 
