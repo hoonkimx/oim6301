@@ -19,7 +19,7 @@ def _():
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    #Mini Project #2
+    # Mini Project 2
     """)
     return
 
@@ -27,7 +27,7 @@ def _(mo):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    ##The Question
+    ## The Question
 
     A student club planning an outdoor event in Wellesley, Massachusetts could use this tool to determine which day has the best weather conditions. By comparing temperature, rain probability, and wind speed over the next seven days, the tool will help identify which days meet the club's requirements and recommend the best day for the event.
     """)
@@ -37,7 +37,7 @@ def _(mo):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    ##My Plan Before AI
+    ## My Plan Before AI
 
     My plan is to start by using the Open-Meteo geocoding API to find the coordinates for Wellesley, Massachusetts. I will then use those coordinates to request the daily weather forecast for the next seven days. The forecast will include the daily high and low temperatures, chance of rain, and maximum wind speed.
 
@@ -57,7 +57,7 @@ def _(mo):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    ##Inputs
+    ## Inputs
     """)
     return
 
@@ -69,7 +69,7 @@ def _():
 
     lowest_high_f = 55
     highest_high_f = 80
-    max_rain_chance = 30
+    max_rain_chance = 0
     max_wind_mph = 15
     return (
         highest_high_f,
@@ -181,7 +181,7 @@ def _(requests):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    ##Function Test
+    ## Function Test
     """)
     return
 
@@ -197,6 +197,17 @@ def _(get_forecast, latitude, longitude):
 
 @app.cell
 def _(forecast):
+    print(f"Forecast records retrieved: {len(forecast)}")
+
+    if len(forecast) == 7:
+        print("Record count verified.")
+    else:
+        print("Warning: Expected 7 forecast records.")
+    return
+
+
+@app.cell
+def _(forecast):
     import json
     from pathlib import Path
 
@@ -204,7 +215,14 @@ def _(forecast):
     data_folder.mkdir(parents=True, exist_ok=True)
 
     with open(data_folder / "wellesley_forecast.json", "w") as file:
-        json.dump(forecast, file, indent=2)
+        json.dump(
+        [
+            {key: value for key, value in day.items() if key != "passes"}
+            for day in forecast
+        ],
+        file,
+        indent=2
+    )
 
     print("Forecast data saved successfully.")
     return
@@ -340,11 +358,21 @@ def _(forecast, location_name, selected_day, state):
         )
 
     print()
-    print(
-        f"I recommend {selected_day['date']} for the outdoor event in "
-        f"{location_name}, {state}, because it has a {selected_day['rain']}% "
-        f"chance of rain and maximum wind of {selected_day['wind']} mph."
-    )
+
+    if selected_day["passes"]:
+        print(
+            f"I recommend {selected_day['date']} for the outdoor event in "
+            f"{location_name}, {state}, because it meets all the weather "
+            f"requirements with {selected_day['rain']}% rain probability "
+            f"and maximum wind of {selected_day['wind']} mph."
+        )
+    else:
+        print(
+            f"No days meet all the weather requirements. "
+            f"The closest option is {selected_day['date']}, "
+            f"with {selected_day['rain']}% rain probability "
+            f"and maximum wind of {selected_day['wind']} mph."
+        )
     return
 
 
@@ -384,10 +412,45 @@ def _(forecast, highest_high_f, lowest_high_f, max_rain_chance, max_wind_mph):
     return
 
 
+@app.cell
+def _(
+    forecast,
+    highest_high_f,
+    lowest_high_f,
+    max_rain_chance,
+    max_wind_mph,
+    selected_day,
+):
+    passing_days_check = []
+
+    for _day in forecast:
+        if (
+            lowest_high_f <= _day["high"] <= highest_high_f
+            and _day["rain"] <= max_rain_chance
+            and _day["wind"] <= max_wind_mph
+        ):
+            passing_days_check.append(_day)
+
+    if passing_days_check:
+        expected_day = min(
+            passing_days_check,
+            key=lambda d: (d["rain"], d["wind"])
+        )
+
+        print(f"Expected best day: {expected_day['date']}")
+        print(f"Tool selected: {selected_day['date']}")
+        print(f"Best-day verification passed: {expected_day['date'] == selected_day['date']}")
+    else:
+        print("No qualifying days to verify with this check.")
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    To verify my results, I independently checked the weather conditions for each day against the four requirements. I then compared the number of days that passed this calculation with the number of passing days reported by my tool. Both calculations identified 7 suitable days, confirming that the results matched.
+    To verify my results, I independently checked the weather conditions for each day against the four requirements. I then compared the number of days that passed this calculation with the number of passing days reported by my tool.
+
+    With the original rain limit of 30%, both calculations identified 7 suitable days. After changing the rain limit to 0% in Section 8, both calculations identified 3 suitable days. The verification passed in both cases.
     """)
     return
 
@@ -424,6 +487,69 @@ def _(mo):
     **Prediction**
 
     I predict that changing max_rain_chance from 30 to 0 will reduce the number of passing days from 7 to 3. I also predict that October 28 will remain the recommended day because it has a 0% chance of rain and the lowest wind speed among the days with no expected rain.
+
+    **Actual Results**
+
+    After changing max_rain_chance from 30 to 0, the number of passing days decreased from 7 to 3, which matched my prediction. October 25, 28, and 29 were the only days that met all four requirements. October 28 also remained the recommended day because it had a 0% chance of rain and the lowest maximum wind speed at 4.8 mph. Although some of the forecast values changed slightly when I reran the API request, the overall results matched my prediction.
+    """)
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    ## Going Further
+    """)
+    return
+
+
+@app.cell
+def _(forecast, highest_high_f, lowest_high_f, max_rain_chance, max_wind_mph):
+    print("Weather Suitability Scores")
+    print(f"{'Date':<14} {'Score':>8}")
+    print("-" * 24)
+
+    for _day in forecast:
+        score = 10
+
+        if _day["high"] < lowest_high_f or _day["high"] > highest_high_f:
+            score -= 2
+
+        if _day["rain"] > max_rain_chance:
+            score -= 2
+
+        if _day["wind"] > max_wind_mph:
+            score -= 2
+
+        score -= _day["rain"] / 20
+        score -= _day["wind"] / 20
+
+        score = max(0, round(score, 1))
+
+        print(f"{_day['date']:<14} {score:>8.1f}")
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    For my extension, I added a weather suitability score out of 10 for each day. The score considers whether the day meets the club's requirements, while also accounting for differences in rain probability and wind speed. This gives the club another way to compare the forecast beyond simply identifying which days pass or fail. I kept the original recommendation logic unchanged.
+    """)
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    ## Time Spent
+    """)
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    3.75 Hours
     """)
     return
 
