@@ -1,0 +1,58 @@
+[
+  {
+    "date": "2026-10-25",
+    "high": 67.3,
+    "low": 28.6,
+    "rain": 0,
+    "wind": 6.7,
+    "passes": true
+  },
+  {
+    "date": "2026-10-26",
+    "high": 69.8,
+    "low": 42.1,
+    "rain": 5,
+    "wind": 10.9,
+    "passes": true
+  },
+  {
+    "date": "2026-10-27",
+    "high": 55.4,
+    "low": 39.5,
+    "rain": 6,
+    "wind": 9.5,
+    "passes": true
+  },
+  {
+    "date": "2026-10-28",
+    "high": 56.5,
+    "low": 38.1,
+    "rain": 0,
+    "wind": 5.2,
+    "passes": true
+  },
+  {
+    "date": "2026-10-29",
+    "high": 65.3,
+    "low": 44.8,
+    "rain": 0,
+    "wind": 11.3,
+    "passes": true
+  },
+  {
+    "date": "2026-10-30",
+    "high": 71.1,
+    "low": 50.5,
+    "rain": 1,
+    "wind": 13.0,
+    "passes": true
+  },
+  {
+    "date": "2026-10-31",
+    "high": 55.2,
+    "low": 42.5,
+    "rain": 1,
+    "wind": 8.6,
+    "passes": true
+  }
+]
