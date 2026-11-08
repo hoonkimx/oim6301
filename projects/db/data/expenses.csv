@@ -1,0 +1,181 @@
+expense_id,project_id,expense_date,amount,category,note
+1,1,2025-11-09,132.53,GPU cloud,Fictional gpu cloud invoice 1
+2,2,2026-09-05,99.53,GPU cloud,Fictional gpu cloud invoice 2
+3,3,2026-07-03,721.69,data labeling,Fictional data labeling invoice 3
+4,4,2026-05-08,399.00,software,Fictional software invoice 4
+5,5,2026-03-08,754.40,GPU cloud,Fictional gpu cloud invoice 5
+6,6,2026-07-24,99.00,software,Fictional software invoice 6
+7,7,2026-07-25,165.38,GPU cloud,Fictional gpu cloud invoice 7
+8,8,2026-05-18,572.31,GPU cloud,Fictional gpu cloud invoice 8
+9,9,2026-04-01,249.61,GPU cloud,Fictional gpu cloud invoice 9
+10,10,2026-02-17,698.46,GPU cloud,Fictional gpu cloud invoice 10
+11,11,2026-03-12,90.32,GPU cloud,Fictional gpu cloud invoice 11
+12,1,2026-11-02,371.37,GPU cloud,Fictional gpu cloud invoice 12
+13,2,2026-07-31,29.00,software,Fictional software invoice 13
+14,3,2026-06-09,968.66,data labeling,Fictional data labeling invoice 14
+15,4,2026-08-31,791.51,GPU cloud,Fictional gpu cloud invoice 15
+16,5,2026-01-05,399.00,software,Fictional software invoice 16
+17,6,2026-09-13,99.00,software,Fictional software invoice 17
+18,7,2026-08-08,495.98,GPU cloud,Fictional gpu cloud invoice 18
+19,8,2026-05-31,899.34,data labeling,Fictional data labeling invoice 19
+20,9,2026-10-19,711.77,GPU cloud,Fictional gpu cloud invoice 20
+21,10,2026-04-08,632.10,GPU cloud,Fictional gpu cloud invoice 21
+22,11,2026-05-27,399.00,software,Fictional software invoice 22
+23,1,2026-04-29,373.37,GPU cloud,Fictional gpu cloud invoice 23
+24,2,2026-09-02,141.74,GPU cloud,Fictional gpu cloud invoice 24
+25,3,2026-03-10,29.00,software,Fictional software invoice 25
+26,4,2026-08-15,217.63,GPU cloud,Fictional gpu cloud invoice 26
+27,5,2026-06-24,29.00,software,Fictional software invoice 27
+28,6,2026-07-08,99.00,software,Fictional software invoice 28
+29,7,2026-06-28,716.79,GPU cloud,Fictional gpu cloud invoice 29
+30,8,2026-10-20,911.17,travel,Fictional travel invoice 30
+31,9,2026-06-30,854.88,data labeling,Fictional data labeling invoice 31
+32,10,2026-08-26,695.33,GPU cloud,Fictional gpu cloud invoice 32
+33,11,2026-05-24,373.88,GPU cloud,Fictional gpu cloud invoice 33
+34,1,2025-12-25,274.54,GPU cloud,Fictional gpu cloud invoice 34
+35,2,2026-07-11,505.82,GPU cloud,Fictional gpu cloud invoice 35
+36,3,2026-10-01,786.85,GPU cloud,Fictional gpu cloud invoice 36
+37,4,2026-01-15,199.00,software,Fictional software invoice 37
+38,5,2026-04-24,618.28,GPU cloud,Fictional gpu cloud invoice 38
+39,6,2026-04-18,49.00,software,Fictional software invoice 39
+40,7,2026-07-08,504.33,GPU cloud,Fictional gpu cloud invoice 40
+41,8,2026-01-21,49.00,software,Fictional software invoice 41
+42,9,2026-06-21,253.82,GPU cloud,Fictional gpu cloud invoice 42
+43,10,2026-05-29,1379.63,travel,Fictional travel invoice 43
+44,11,2026-06-28,152.32,GPU cloud,Fictional gpu cloud invoice 44
+45,1,2026-10-30,167.44,GPU cloud,Fictional gpu cloud invoice 45
+46,2,2026-06-29,1691.39,data labeling,Fictional data labeling invoice 46
+47,3,2026-03-14,192.33,GPU cloud,Fictional gpu cloud invoice 47
+48,4,2026-09-09,970.06,data labeling,Fictional data labeling invoice 48
+49,5,2026-08-15,99.00,software,Fictional software invoice 49
+50,6,2026-07-06,1129.54,data labeling,Fictional data labeling invoice 50
+51,7,2026-04-13,456.40,GPU cloud,Fictional gpu cloud invoice 51
+52,8,2026-06-05,940.68,travel,Fictional travel invoice 52
+53,9,2026-06-18,199.00,software,Fictional software invoice 53
+54,10,2026-06-02,835.14,data labeling,Fictional data labeling invoice 54
+55,11,2026-10-18,486.39,GPU cloud,Fictional gpu cloud invoice 55
+56,1,2025-12-04,232.10,GPU cloud,Fictional gpu cloud invoice 56
+57,2,2026-01-31,487.33,data labeling,Fictional data labeling invoice 57
+58,3,2026-10-31,696.24,GPU cloud,Fictional gpu cloud invoice 58
+59,4,2025-12-11,1272.21,data labeling,Fictional data labeling invoice 59
+60,5,2026-06-07,450.32,GPU cloud,Fictional gpu cloud invoice 60
+61,6,2026-01-08,1385.29,data labeling,Fictional data labeling invoice 61
+62,7,2026-04-05,49.00,software,Fictional software invoice 62
+63,8,2026-06-14,895.30,travel,Fictional travel invoice 63
+64,9,2026-07-01,834.89,data labeling,Fictional data labeling invoice 64
+65,10,2026-02-10,620.82,GPU cloud,Fictional gpu cloud invoice 65
+66,11,2026-10-24,29.00,software,Fictional software invoice 66
+67,1,2026-08-03,99.00,software,Fictional software invoice 67
+68,2,2026-10-06,301.97,GPU cloud,Fictional gpu cloud invoice 68
+69,3,2026-05-08,1129.01,data labeling,Fictional data labeling invoice 69
+70,4,2026-01-24,620.58,data labeling,Fictional data labeling invoice 70
+71,5,2026-05-02,382.84,GPU cloud,Fictional gpu cloud invoice 71
+72,6,2026-08-27,408.94,GPU cloud,Fictional gpu cloud invoice 72
+73,7,2026-03-10,350.90,GPU cloud,Fictional gpu cloud invoice 73
+74,8,2026-06-12,701.82,GPU cloud,Fictional gpu cloud invoice 74
+75,9,2026-03-04,399.00,software,Fictional software invoice 75
+76,10,2026-11-04,99.00,software,Fictional software invoice 76
+77,11,2026-10-08,1622.27,data labeling,Fictional data labeling invoice 77
+78,1,2026-04-05,29.00,software,Fictional software invoice 78
+79,2,2026-05-04,1026.56,data labeling,Fictional data labeling invoice 79
+80,3,2026-07-01,99.00,software,Fictional software invoice 80
+81,4,2026-01-27,199.00,software,Fictional software invoice 81
+82,5,2026-04-07,418.77,travel,Fictional travel invoice 82
+83,6,2026-08-03,201.02,GPU cloud,Fictional gpu cloud invoice 83
+84,7,2026-06-28,275.33,GPU cloud,Fictional gpu cloud invoice 84
+85,8,2026-05-17,99.00,software,Fictional software invoice 85
+86,9,2026-06-24,958.44,data labeling,Fictional data labeling invoice 86
+87,10,2026-08-29,524.55,GPU cloud,Fictional gpu cloud invoice 87
+88,11,2026-06-17,147.66,GPU cloud,Fictional gpu cloud invoice 88
+89,1,2026-09-12,210.44,GPU cloud,Fictional gpu cloud invoice 89
+90,2,2026-03-12,199.00,software,Fictional software invoice 90
+91,3,2026-10-18,703.67,GPU cloud,Fictional gpu cloud invoice 91
+92,4,2026-05-03,49.00,software,Fictional software invoice 92
+93,5,2026-03-21,49.00,software,Fictional software invoice 93
+94,6,2026-10-24,321.49,GPU cloud,Fictional gpu cloud invoice 94
+95,7,2026-03-18,549.24,data labeling,Fictional data labeling invoice 95
+96,8,2026-10-14,199.00,software,Fictional software invoice 96
+97,9,2026-03-22,743.11,data labeling,Fictional data labeling invoice 97
+98,10,2026-10-07,99.00,software,Fictional software invoice 98
+99,11,2026-10-16,726.64,data labeling,Fictional data labeling invoice 99
+100,1,2026-10-14,49.00,software,Fictional software invoice 100
+101,2,2026-04-10,779.47,GPU cloud,Fictional gpu cloud invoice 101
+102,3,2026-09-13,1081.81,travel,Fictional travel invoice 102
+103,4,2026-07-23,1764.52,data labeling,Fictional data labeling invoice 103
+104,5,2026-01-24,371.05,GPU cloud,Fictional gpu cloud invoice 104
+105,6,2026-08-16,450.51,GPU cloud,Fictional gpu cloud invoice 105
+106,7,2026-03-05,1763.18,data labeling,Fictional data labeling invoice 106
+107,8,2026-05-20,154.95,GPU cloud,Fictional gpu cloud invoice 107
+108,9,2026-05-21,643.78,GPU cloud,Fictional gpu cloud invoice 108
+109,10,2026-06-11,99.00,software,Fictional software invoice 109
+110,11,2026-03-20,29.00,software,Fictional software invoice 110
+111,1,2025-12-23,612.30,GPU cloud,Fictional gpu cloud invoice 111
+112,2,2026-10-29,678.79,GPU cloud,Fictional gpu cloud invoice 112
+113,3,2026-03-19,809.72,travel,Fictional travel invoice 113
+114,4,2026-10-22,312.86,GPU cloud,Fictional gpu cloud invoice 114
+115,5,2026-02-15,519.79,GPU cloud,Fictional gpu cloud invoice 115
+116,6,2026-05-17,199.00,software,Fictional software invoice 116
+117,7,2026-01-27,799.72,data labeling,Fictional data labeling invoice 117
+118,8,2026-09-18,99.00,software,Fictional software invoice 118
+119,9,2026-08-10,29.00,software,Fictional software invoice 119
+120,10,2026-04-04,199.00,software,Fictional software invoice 120
+121,11,2026-08-05,99.00,software,Fictional software invoice 121
+122,1,2025-11-09,399.00,software,Fictional software invoice 122
+123,2,2026-10-27,537.59,GPU cloud,Fictional gpu cloud invoice 123
+124,3,2026-04-25,1005.21,travel,Fictional travel invoice 124
+125,4,2026-10-28,532.00,GPU cloud,Fictional gpu cloud invoice 125
+126,5,2026-07-18,199.00,software,Fictional software invoice 126
+127,6,2026-10-01,473.53,data labeling,Fictional data labeling invoice 127
+128,7,2026-05-04,1495.41,travel,Fictional travel invoice 128
+129,8,2026-05-17,1779.30,data labeling,Fictional data labeling invoice 129
+130,9,2026-11-08,793.56,data labeling,Fictional data labeling invoice 130
+131,10,2026-07-11,555.10,GPU cloud,Fictional gpu cloud invoice 131
+132,11,2026-09-18,729.10,GPU cloud,Fictional gpu cloud invoice 132
+133,1,2026-08-07,660.93,GPU cloud,Fictional gpu cloud invoice 133
+134,2,2026-10-04,585.44,travel,Fictional travel invoice 134
+135,3,2026-05-30,1400.18,travel,Fictional travel invoice 135
+136,4,2026-11-04,99.00,software,Fictional software invoice 136
+137,5,2026-07-01,1456.62,data labeling,Fictional data labeling invoice 137
+138,6,2026-04-25,763.65,data labeling,Fictional data labeling invoice 138
+139,7,2026-10-25,412.34,travel,Fictional travel invoice 139
+140,8,2026-10-26,49.00,software,Fictional software invoice 140
+141,9,2026-08-04,1739.77,data labeling,Fictional data labeling invoice 141
+142,10,2026-04-16,670.88,travel,Fictional travel invoice 142
+143,11,2026-06-09,321.96,GPU cloud,Fictional gpu cloud invoice 143
+144,1,2025-12-23,739.42,GPU cloud,Fictional gpu cloud invoice 144
+145,2,2026-04-20,99.00,software,Fictional software invoice 145
+146,3,2025-12-07,379.49,GPU cloud,Fictional gpu cloud invoice 146
+147,4,2026-07-13,650.44,GPU cloud,Fictional gpu cloud invoice 147
+148,5,2026-09-23,29.00,software,Fictional software invoice 148
+149,6,2026-08-06,443.86,data labeling,Fictional data labeling invoice 149
+150,7,2026-05-04,29.00,software,Fictional software invoice 150
+151,8,2026-10-22,235.28,GPU cloud,Fictional gpu cloud invoice 151
+152,9,2026-08-03,1355.78,data labeling,Fictional data labeling invoice 152
+153,10,2026-03-28,399.00,software,Fictional software invoice 153
+154,11,2026-06-18,1071.12,travel,Fictional travel invoice 154
+155,1,2026-03-23,1746.79,data labeling,Fictional data labeling invoice 155
+156,2,2025-12-14,199.00,software,Fictional software invoice 156
+157,3,2026-09-23,820.34,data labeling,Fictional data labeling invoice 157
+158,4,2026-06-12,652.35,data labeling,Fictional data labeling invoice 158
+159,5,2026-09-08,385.49,GPU cloud,Fictional gpu cloud invoice 159
+160,6,2026-05-23,312.36,GPU cloud,Fictional gpu cloud invoice 160
+161,7,2026-10-01,99.00,software,Fictional software invoice 161
+162,8,2026-10-12,602.31,GPU cloud,Fictional gpu cloud invoice 162
+163,9,2026-04-09,447.70,GPU cloud,Fictional gpu cloud invoice 163
+164,10,2026-04-08,582.24,GPU cloud,Fictional gpu cloud invoice 164
+165,11,2026-10-06,507.53,GPU cloud,Fictional gpu cloud invoice 165
+166,1,2026-05-30,399.00,software,Fictional software invoice 166
+167,2,2026-09-14,353.48,GPU cloud,Fictional gpu cloud invoice 167
+168,3,2026-02-10,501.30,GPU cloud,Fictional gpu cloud invoice 168
+169,4,2026-08-23,677.74,GPU cloud,Fictional gpu cloud invoice 169
+170,5,2026-05-19,762.23,travel,Fictional travel invoice 170
+171,6,2026-06-02,686.99,GPU cloud,Fictional gpu cloud invoice 171
+172,7,2026-03-05,265.61,GPU cloud,Fictional gpu cloud invoice 172
+173,8,2026-11-03,607.45,GPU cloud,Fictional gpu cloud invoice 173
+174,9,2026-03-31,49.00,software,Fictional software invoice 174
+175,10,2026-09-19,1176.12,travel,Fictional travel invoice 175
+176,11,2026-06-20,225.93,GPU cloud,Fictional gpu cloud invoice 176
+177,1,2026-10-17,29.00,software,Fictional software invoice 177
+178,2,2026-06-22,1606.25,data labeling,Fictional data labeling invoice 178
+179,3,2026-08-01,199.00,software,Fictional software invoice 179
+180,4,2026-11-08,715.47,GPU cloud,Fictional gpu cloud invoice 180

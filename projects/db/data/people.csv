@@ -1,0 +1,26 @@
+person_id,first_name,last_name,work_email,title,start_date,manager_id
+1,Alex,Morgan,alex.morgan@example.com,Co-founder,2024-01-20,
+2,Jordan,Reed,jordan.reed@example.com,Co-founder,2024-02-08,
+3,Taylor,Brooks,taylor.brooks@example.com,Team lead,2024-02-27,1
+4,Casey,Rivera,casey.rivera@example.com,Team lead,2024-03-17,2
+5,Riley,Patel,riley.patel@example.com,Team lead,2024-04-05,1
+6,Avery,Chen,avery.chen@example.com,Team lead,2024-04-24,2
+7,Sam,Ellis,sam.ellis@example.com,AI engineer,2024-05-13,6
+8,Jamie,Park,jamie.park@example.com,Product designer,2024-06-01,3
+9,Drew,Bennett,drew.bennett@example.com,Product designer,2024-06-20,4
+10,Quinn,Hayes,quinn.hayes@example.com,Product designer,2024-07-09,5
+11,Cameron,Lee,cameron.lee@example.com,AI engineer,2024-07-28,6
+12,Devon,Shah,devon.shah@example.com,Product designer,2024-08-16,3
+13,Emerson,Price,emerson.price@example.com,Product designer,2024-09-04,4
+14,Finley,Cole,finley.cole@example.com,AI engineer,2024-09-23,5
+15,Harper,Diaz,harper.diaz@example.com,Data analyst,2024-10-12,6
+16,Jesse,Wong,jesse.wong@example.com,Data analyst,2024-10-31,3
+17,Kai,Ross,kai.ross@example.com,Product designer,2024-11-19,4
+18,Logan,Singh,logan.singh@example.com,Product designer,2024-12-08,5
+19,Micah,Stone,micah.stone@example.com,Data analyst,2024-12-27,6
+20,Noel,Clark,noel.clark@example.com,AI engineer,2025-01-15,3
+21,Parker,Kim,parker.kim@example.com,Data analyst,2025-02-03,4
+22,Reese,Grant,reese.grant@example.com,Product designer,2025-02-22,5
+23,Robin,Bell,robin.bell@example.com,AI engineer,2025-03-13,6
+24,Skyler,Fox,skyler.fox@example.com,Data analyst,2025-04-01,3
+25,Rowan,Lane,rowan.lane@example.com,Data analyst,2025-04-20,4

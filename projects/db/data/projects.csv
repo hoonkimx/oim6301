@@ -1,0 +1,13 @@
+project_id,project_name,client_name,category,budget,start_date,status
+1,Customer Support Assistant,Example Client 1,LLM app,3000.00,2025-11-09,active
+2,Invoice Data Pipeline,Example Client 2,data pipeline,9500.00,2025-11-19,active
+3,Internal Search,,internal tool,10250.00,2025-11-29,active
+4,Retail FAQ Assistant,Example Client 4,LLM app,11000.00,2025-12-09,active
+5,Sales Reporting Pipeline,Example Client 5,data pipeline,11750.00,2025-12-19,active
+6,Team Planning Tool,,internal tool,12500.00,2025-12-29,active
+7,Restaurant Booking Assistant,Example Client 7,LLM app,13250.00,2026-01-08,active
+8,Inventory Data Pipeline,Example Client 8,data pipeline,14000.00,2026-01-18,paused
+9,Internal QA Tool,,internal tool,14750.00,2026-01-28,done
+10,Client Onboarding Assistant,Example Client 10,LLM app,15500.00,2026-02-07,done
+11,Delivery Data Pipeline,Example Client 11,data pipeline,16250.00,2026-02-17,done
+12,Future Staff Portal,,internal tool,17000.00,2026-02-27,planned
