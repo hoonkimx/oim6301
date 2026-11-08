@@ -41,15 +41,12 @@ def _(as_of, mo):
 
     Run `uv run python projects/db/make_data.py` first to create the CSV files.
     This notebook rebuilds the database from those CSV files every time it runs.
-    Dates are read as DATE, IDs and hours as INTEGER, and money as DECIMAL(12,2).
-    No CSV rows are skipped or removed.
+    The data includes 565 rows across five tables. No rows are skipped.
 
     # 1. The Tables
 
-    The CREATE TABLE statements below follow the README diagram.
-    A primary key identifies a row; a foreign key points to a valid row in another
-    table. NOT NULL requires a value, CHECK enforces a rule, UNIQUE prevents a
-    duplicate, and DEFAULT supplies a value when an insert omits that column.
+    These tables follow the design in the README. The constraints check IDs,
+    required values, allowed categories, dates, and positive amounts.
     """)
     return
 
@@ -150,10 +147,9 @@ def _(mo):
     Assignment dates still follow employee start dates in both deliberate errors.
     Every other scenario rule is followed.
 
-    In the build cell, `_con` is a connection used only inside the `with` block.
-    People load one row at a time, managers first, because their manager foreign
-    key points back to the people table. The other files load into tables whose
-    referenced rows already exist. Empty CSV fields become SQL NULL values.
+    People load one row at a time, managers first, so each manager exists before
+    an employee refers to them. The other tables load after the rows they reference.
+    Empty CSV fields are stored as NULL.
     """)
     return
 
@@ -218,10 +214,8 @@ def _(mo):
     mo.md("""
     # 3. A Look at the Data
 
-    This reads `expenses.csv` directly with Polars and charts invoice amounts.
-    `cast(pl.Float64)` converts all 180 monetary values to numbers for plotting;
-    it does not change the database's exact DECIMAL money values.
-    `bin=True` groups nearby amounts into histogram bars, and `count()` counts invoices.
+    This chart uses all 180 rows from `expenses.csv`. Amounts are converted to
+    numbers for the chart; the database stores money as DECIMAL(12,2).
     """)
     return
 
@@ -242,10 +236,9 @@ def _(alt, database, pl):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md("""
-    The many smaller invoices and fewer large bills are plausible for a small AI
-    startup because recurring software charges are usually smaller than labeling
-    and travel bills; the generator uses different amount ranges by category
-    rather than giving every expense the same uniform price distribution.
+    The mix of smaller software bills and larger labeling and travel expenses
+    looks reasonable for this business, so the generator uses different price
+    ranges for each category.
 
     # 4. Row Counts
     """)
@@ -272,8 +265,7 @@ def _(mo):
     # 5. A Row It Refuses
 
     Expected: an expense of **-1.00** is rejected by the `amount > 0` constraint.
-    This uses a short write connection because `ask()` opens read-only connections.
-    `try` / `except` displays the expected rejection without stopping the notebook.
+    The error is caught so the rest of the notebook can still run.
     """)
     return
 
@@ -309,8 +301,7 @@ def _(mo):
     2. **2 employees without managers**, because only people 1 and 2 are founders.
     3. **0 expenses for project 12**, because expense project IDs cycle only through 1–11.
 
-    Each query runs below. `assert` stops with an error if an actual value differs
-    from the expected value. `.item()` extracts a single value from a one-cell table.
+    Each result is compared with its expected value below. A mismatch fails the check.
     """)
     return
 
@@ -342,12 +333,8 @@ def _(mo):
 
     Weekly question: **How much has each project spent, and how much budget remains?**
     `weekly_project_spending` is created in the build cell and can be queried by name.
-    A view saves a query, rather than a separate copy of its results, so it reads the
-    current underlying records. Part B's budget question will use this view.
-
-    `LEFT JOIN` keeps projects without expenses, and `COALESCE(..., 0)` shows their
-    spending as zero instead of NULL. The percent is spending divided by budget,
-    multiplied by 100.
+    It includes projects with no expenses and shows their spending as zero.
+    Part B's budget question will use this view.
     """)
     return
 
