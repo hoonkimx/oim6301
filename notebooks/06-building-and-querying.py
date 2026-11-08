@@ -13,7 +13,7 @@
 
 import marimo
 
-__generated_with = "0.25.1"
+__generated_with = "0.24.2"
 app = marimo.App(width="medium", sql_output="polars")
 
 
@@ -100,7 +100,7 @@ def _(mo, pl, requests):
         town_rows = pl.DataFrame(_records).select(town_columns)
 
     county_rows.shape, town_rows.shape
-    return county_rows, town_rows
+    return
 
 
 @app.cell(hide_code=True)
@@ -130,7 +130,7 @@ def _(mo):
 
 
 @app.cell
-def _(county_rows, duckdb, mo, town_rows):
+def _(duckdb, mo):
     _file = mo.notebook_dir().parent / "data" / "ma-towns.duckdb"
     _file.parent.mkdir(exist_ok=True)
     _file.unlink(missing_ok=True)
@@ -233,15 +233,15 @@ def _(database, duckdb):
         _con.execute("INSERT INTO town_bills VALUES ('Wellesley', 2025, 19792)")
         _con.execute("INSERT INTO town_bills VALUES ('Wellesley', 2026, 20551)")
     town_bills_created = True
-    return (town_bills_created,)
+    return
 
 
 @app.cell
-def _(ask, town_bills_created):
+def _(ask):
     wellesley_bills = ask("SELECT * FROM town_bills ORDER BY fiscal_year")
     print(wellesley_bills)
     wellesley_bills
-    return (wellesley_bills,)
+    return
 
 
 @app.cell(hide_code=True)
@@ -291,7 +291,7 @@ def _(database, duckdb):
         raise AssertionError("The duplicate town was accepted.")
     print(duplicate_name_message)
     duplicate_name_message
-    return (duplicate_name_message,)
+    return
 
 
 @app.cell
@@ -305,7 +305,7 @@ def _(database, duckdb):
         raise AssertionError("The zero population was accepted.")
     print(zero_population_message)
     zero_population_message
-    return (zero_population_message,)
+    return
 
 
 @app.cell
@@ -319,7 +319,7 @@ def _(database, duckdb):
         raise AssertionError("The missing county was accepted.")
     print(missing_county_message)
     missing_county_message
-    return (missing_county_message,)
+    return
 
 
 @app.cell(hide_code=True)
@@ -369,7 +369,7 @@ def _(ask):
     """)
     print(top_five_towns)
     top_five_towns
-    return (top_five_towns,)
+    return
 
 
 @app.cell(hide_code=True)
@@ -477,7 +477,7 @@ def _(ask, mo, requests):
         _path.write_bytes(_reply.content)
     orders_file = _path.as_posix()
     ask(f"SELECT count(*) AS orders FROM '{orders_file}'")
-    return (orders_file,)
+    return
 
 
 @app.cell(hide_code=True)
@@ -486,7 +486,7 @@ def _(mo):
     1. How many different countries did Northwind ship orders to? Use the column `ShipCountry`. *Check yourself: 21.*
     2. For each country, the number of orders and the total of `Freight`, the most freight first. *Check yourself: USA with 2,328 orders and 573,251 in freight, then Germany with 2,193 and 537,189.75, then France with 1,778 and 442,055.75.*
 
-    **Going further.** Rank the countries by freight per order instead, and see which countries move.
+    **Going further.** Rank the countries by freight per order instead, and see which countries move
     """)
     return
 
