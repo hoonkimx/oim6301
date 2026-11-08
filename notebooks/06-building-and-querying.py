@@ -100,7 +100,7 @@ def _(mo, pl, requests):
         town_rows = pl.DataFrame(_records).select(town_columns)
 
     county_rows.shape, town_rows.shape
-    return
+    return county_rows, town_rows
 
 
 @app.cell(hide_code=True)
@@ -130,12 +130,14 @@ def _(mo):
 
 
 @app.cell
-def _(duckdb, mo):
+def _(county_rows, duckdb, mo, town_rows):
     _file = mo.notebook_dir().parent / "data" / "ma-towns.duckdb"
     _file.parent.mkdir(exist_ok=True)
     _file.unlink(missing_ok=True)
 
     with duckdb.connect(_file) as _con:
+        _con.register("county_rows", county_rows)
+        _con.register("town_rows", town_rows)
         _con.execute("""
             CREATE TABLE counties (
                 name                      VARCHAR PRIMARY KEY,
@@ -233,11 +235,12 @@ def _(database, duckdb):
         _con.execute("INSERT INTO town_bills VALUES ('Wellesley', 2025, 19792)")
         _con.execute("INSERT INTO town_bills VALUES ('Wellesley', 2026, 20551)")
     town_bills_created = True
-    return
+    return (town_bills_created,)
 
 
 @app.cell
-def _(ask):
+def _(ask, town_bills_created):
+    assert town_bills_created
     wellesley_bills = ask("SELECT * FROM town_bills ORDER BY fiscal_year")
     print(wellesley_bills)
     wellesley_bills
